@@ -8,6 +8,12 @@ import org.bukkit.entity.Player;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.jetbrains.annotations.NotNull;
+import net.milkbowl.vault.economy.EconomyResponse;
+
+int min = 1
+int max = 20
+
+int randomNum = (int)(Math.random() * ((max - min) + 1)) + min;
 
 public class BaseCommand implements CommandExecutor {
 
@@ -32,6 +38,26 @@ public class BaseCommand implements CommandExecutor {
             sender.sendMessage(Component.text("Hanya Player yang bisa menggunakan ini!!!", NamedTextColor.RED));
         }
         return true;
+        
+        if (command.getName().equalsIgnoreCase("gacha")) {
+          if (randomNum > 20) {
+            sender.sendMessage("§4You're unlucky");
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "eco give " + player.getName() + " 1")
+          }
+          else if (randomNum > 15) {
+            sender.sendMessage("§eKamu beruntung");
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "eco give " + player.getName() + " 5");
+          }
+          else if (randomNum > 10) {
+            sender.sendMessage("§4Wow");
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "eco give " + player.getName() + " 15")
+          }
+          else if (randomNum > 5) {
+            sender.sendMessage("§4You so lucky!")
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "eco give " + player.getName() + " 100")
+          }
+        }
+        }
     }
 }
 

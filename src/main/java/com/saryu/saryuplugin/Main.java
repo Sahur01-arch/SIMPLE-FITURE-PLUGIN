@@ -27,7 +27,7 @@ public class Main extends JavaPlugin implements Listener {
         
         if (getCommand("smfp") != null) getCommand("smfp").setExecutor(this);
 
-        getLogger().info("Plugin Saryu Berhasil di-load!");
+        getLogger().info("§aPlugin Saryu Berhasil di-load!");
     }
 
     @EventHandler

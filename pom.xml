@@ -6,7 +6,7 @@
 
     <groupId>com.saryu</groupId>
     <artifactId>SIMPLEFITURE</artifactId>
-    <version>1.0-SNAPSHOT+HOTFIX</version>
+    <version>1.0+BETA</version>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
