@@ -1,0 +1,19 @@
+name: SimpleFiturePlugin
+version: 1.0 Beta
+main: com.saryu.saryuplugin.Main
+api-version: "1.21"
+author: Sahur
+description: §4PROTOTYPE MADE BY SAHUR
+commands:
+  test:
+    description: §atong
+    usage: /<command>
+  pvp:
+    description: $4PVP AREA
+    usage: /<command>
+  smfp:
+    description: §aMain Command SMFP
+    usage: /<command>
+  gacha:
+    description: §eGACHA
+    usage: /<command>

@@ -25,10 +25,8 @@ public class Main extends JavaPlugin implements Listener {
             getCommand("pvp").setExecutor(new BaseCommand(this));
         }
         
-        if (get.Command("gacha") != null) {
+        if (getCommand("gacha") != null) {
             getCommand("gacha").setExecutor(new BaseCommand(this));
-        }
-        
         }
         
         if (getCommand("smfp") != null) getCommand("smfp").setExecutor(this);
