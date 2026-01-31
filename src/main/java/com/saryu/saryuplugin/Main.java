@@ -25,6 +25,12 @@ public class Main extends JavaPlugin implements Listener {
             getCommand("pvp").setExecutor(new BaseCommand(this));
         }
         
+        if (get.Command("gacha") != null) {
+            getCommand("gacha").setExecutor(new BaseCommand(this));
+        }
+        
+        }
+        
         if (getCommand("smfp") != null) getCommand("smfp").setExecutor(this);
 
         getLogger().info("§aPlugin Saryu Berhasil di-load!");
