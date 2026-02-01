@@ -1,5 +1,6 @@
 package com.saryu.saryuplugin;
 
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.event.Listener;
 import org.bukkit.event.EventHandler;
@@ -18,32 +19,40 @@ public class Main extends JavaPlugin implements Listener {
         saveDefaultConfig();
 
         getServer().getPluginManager().registerEvents(this, this);
-        
-        DuelManager duelManager = new DuelManager(this);
-
-        if (getCommand("duel") != null) {
-            getCommand("duel").setExecutor(new DuelCommand(duelManager));
-        }
-        
-        getServer().getPluginManager().registerEvents(new DuelListener(duelManager), this);
 
         if (getCommand("test") != null) getCommand("test").setExecutor(this);
-        
-        if (getCommand("pvp") != null) {
-            getCommand("pvp").setExecutor(new BaseCommand(this));
-        }
-        
-        if (getCommand("gacha") != null) {
-            getCommand("gacha").setExecutor(new BaseCommand(this));
-        }
-        
         if (getCommand("smfp") != null) getCommand("smfp").setExecutor(this);
+        
+        BaseCommand baseCmd = new BaseCommand(this);
+        if (getCommand("pvp") != null) getCommand("pvp").setExecutor(baseCmd);
+        if (getCommand("gacha") != null) getCommand("gacha").setExecutor(baseCmd);
 
-        getLogger().info("§aPlugin Saryu Berhasil di-load!");
+        Bukkit.getScheduler().runTaskLater(this, () -> {
+            try {
+                getLogger().info("§eMenginisialisasi Duel System...");
+                
+                DuelManager duelManager = new DuelManager(this);
+
+                if (getCommand("duel") != null) {
+                    getCommand("duel").setExecutor(new DuelCommand(duelManager));
+                }
+                
+                getServer().getPluginManager().registerEvents(new DuelListener(duelManager), this);
+
+                getLogger().info("§aSimpleFiturePlugin: Duel System Berhasil Aktif!");
+            } catch (NoClassDefFoundError e) {
+                getLogger().severe("§cCRASH: Class MultiverseCore tetap tidak ditemukan!");
+                getLogger().severe("§cPastikan Multiverse-Core.jar ada di folder plugins.");
+            } catch (Exception e) {
+                getLogger().severe("§cGagal mengaktifkan fitur duel: " + e.getMessage());
+            }
+        }, 1L); 
+
+        getLogger().info("§aPlugin Saryu v1.1 BETA (Core) Berhasil di-load!");
     }
 
     @EventHandler
-    public void onPlayerJoin(PlayerJoinEvent event) {
+    public void onJoin(PlayerJoinEvent event) {
         event.getPlayer().sendMessage(
             Component.text("Halo Pemain!", NamedTextColor.GREEN)
         );
@@ -84,3 +93,4 @@ public class Main extends JavaPlugin implements Listener {
         return false;
     }
 }
+

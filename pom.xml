@@ -20,7 +20,7 @@
         </repository>
         <repository>
             <id>onarandombox</id>
-            <url>https://repo.onarandombox.com/content/groups/public/</url>
+	    <url>https://repo.onarandombox.com/content/groups/public/</url>
         </repository>
     </repositories>
 
@@ -31,13 +31,15 @@
             <version>1.21.4-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
-            <groupId>com.onarandombox.multiversecore</groupId>
-            <artifactId>Multiverse-Core</artifactId>
-            <version>4.3.1</version>
+	    <groupId>org.mvplugins.multiverse.core</groupId>
+            <artifactId>multiverse-core</artifactId> 
+            <version>5.0.0-SNAPSHOT</version> 
             <scope>provided</scope>
         </dependency>
     </dependencies>
+
 
     <build>
         <resources>
@@ -45,15 +47,7 @@
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
             </resource>
-            <resource>
-                <directory>${project.basedir}</directory>
-                <includes>
-                    <include>LICENSE</include>
-                </includes>
-                <filtering>false</filtering>
-            </resource>
         </resources>
-
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -70,9 +64,6 @@
                         <goals>
                             <goal>shade</goal>
                         </goals>
-                        <configuration>
-                            <createDependencyReducedPom>false</createDependencyReducedPom>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
