@@ -1,5 +1,3 @@
-# listener
-
 package com.saryu.saryuplugin;
 
 import org.bukkit.entity.Player;

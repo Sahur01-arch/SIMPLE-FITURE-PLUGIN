@@ -59,7 +59,7 @@ public class BaseCommand implements CommandExecutor {
             if (randomNum > 15) {
                 player.sendMessage("§4You so lucky!");
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(),
-                        "eco give " + player.getName() + " 100");
+                        "eco give " + player.getName() + " 20");
 
             } else if (randomNum > 10) {
                 player.sendMessage("§eWow!");
