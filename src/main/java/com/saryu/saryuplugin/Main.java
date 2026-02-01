@@ -18,6 +18,14 @@ public class Main extends JavaPlugin implements Listener {
         saveDefaultConfig();
 
         getServer().getPluginManager().registerEvents(this, this);
+        
+        DuelManager duelManager = new DuelManager(this);
+
+        if (getCommand("duel") != null) {
+            getCommand("duel").setExecutor(new DuelCommand(duelManager));
+        }
+        
+        getServer().getPluginManager().registerEvents(new DuelListener(duelManager), this);
 
         if (getCommand("test") != null) getCommand("test").setExecutor(this);
         
@@ -48,7 +56,6 @@ public class Main extends JavaPlugin implements Listener {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-
         if (command.getName().equalsIgnoreCase("test")) {
             if (sender instanceof Player player) {
                 player.sendMessage(
@@ -77,4 +84,3 @@ public class Main extends JavaPlugin implements Listener {
         return false;
     }
 }
-

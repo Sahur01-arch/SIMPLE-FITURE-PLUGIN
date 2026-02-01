@@ -1,5 +1,18 @@
 # This plugin created by sahur
 
 # pvp-world: "Name"
-pvp-world: "example"
+duel:
+   world: "name"
+   posA:
+      x: 0
+      y: 0
+      z: 0
+      yaw: 90
+      pitch: 0
+   posB:
+      x: 0
+      y: 0
+      z: 0
+      yaw: 90
+      pitch: 0
 
