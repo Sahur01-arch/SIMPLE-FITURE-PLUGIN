@@ -1,0 +1,5 @@
+com/saryu/saryuplugin/BaseCommand.class
+com/saryu/saryuplugin/DuelCommand.class
+com/saryu/saryuplugin/DuelManager.class
+com/saryu/saryuplugin/Main.class
+com/saryu/saryuplugin/DuelListener.class

@@ -1,0 +1,17 @@
+name: SimpleFiturePlugin
+version: 1.1 BETA
+main: com.saryu.saryuplugin.Main
+depend: [Multiverse-Core, Vault]
+api-version: "1.21"
+author: Sahur
+description: §4PROTOTYPE MADE BY SAHUR
+commands:
+  test:
+    description: §atong
+    usage: /<command>
+  duel:
+    description: Duel With Player
+    usage: /<command>
+  smfp:
+    description: §aMain Command SMFP
+    usage: /<command>
